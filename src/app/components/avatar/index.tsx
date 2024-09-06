@@ -21,11 +21,10 @@ export function Avatar({ image, name, variant="medium" }: Props){
     return (
         <View>
             { image? (
-                <Image source={image} />
+                <Image source={image} style={variants.size[variant]} />
             ) : (
                 <View style={[styles.letter, variants.size[variant]]}>
                     <Text style={[styles.text, variants.text[variant]]}>{name[0].toUpperCase()}</Text>
-                    <Text>{name[0]}</Text>
                 </View>
             )}
     </View>

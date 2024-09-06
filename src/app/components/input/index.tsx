@@ -8,7 +8,8 @@ function Input({ children, style }: ViewProps){
 }
 
 function Field( {...rest}: TextInputProps ){
-    return <TextInput  style={styles.input} placeholderTextColor={theme.colors.gray_300} {...rest}></TextInput>
+    return <TextInput  style={styles.input} 
+    placeholderTextColor={theme.colors.gray_300} {...rest}></TextInput>
 }
 
 Input.Field = Field
