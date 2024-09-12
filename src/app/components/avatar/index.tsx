@@ -15,11 +15,12 @@ type Props = {
     name: string
     image?: ImageProps | null
     variant?: "medium" | "large"
+    containerStyle: StyleProp<ViewStyle>
 }
 
-export function Avatar({ image, name, variant="medium" }: Props){
+export function Avatar({ image, name, variant="medium", containerStyle }: Props){
     return (
-        <View>
+        <View style={containerStyle }>
             { image? (
                 <Image source={image} style={variants.size[variant]} />
             ) : (
