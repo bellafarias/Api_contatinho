@@ -9,7 +9,7 @@ import { Contact, ContactProps } from "@/app/components/contact"
 
 type SectionListDataProps = {
     title: string
-    data: ContactProps
+    data: ContactProps[]
 }
 
 export function Home(){
