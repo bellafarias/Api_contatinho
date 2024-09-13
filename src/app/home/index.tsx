@@ -12,6 +12,7 @@ import { Input }  from "@/app/components/input"
 import { Contact, ContactProps } from "@/app/components/contact"
 import bottomSheet from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheet"
 import { Avatar } from "../components/avatar"
+import { Button } from "../components/button"
 
 type SectionListDataProps = {
     title: string
@@ -96,31 +97,25 @@ export function Home(){
             showsVerticalScrollIndicator = {false}
             SectionSeparatorComponent = {() => <View style={styles.separator}/>}
             />
-            {
-                contact &&
-                    <BottomSheet 
-                    ref={BottomSheetRef} 
-                    snapPoints={[30, 284]}
-                    handleComponent={() => null}
-                    backgroundStyle={styles.bottomSheet}>
-                    <Avatar name={contact.name} image={contact.image} variant="large"/>
-                    <View style= {styles.bottomSheetContent} />
+                {
+                    contact &&
+                    <BottomSheet ref={BottomSheetRef} snapPoints={[1, 284]} handleComponent={() => null} backgroundStyle={styles.bottomSheet}>
+                        <Avatar name={contact.name} image={contact.image} variant="large" containerStyle={styles.image}/>
+                        <View style= {styles.bottomSheetContent}>
                         <Text style={styles.contactName}>{contact.name}</Text>
-                    
-                    {
-                        contact.phoneNumbers && 
-                        <View style={styles.phone}>
-                            <Feather name="phone" size={18} color={theme.colors.gray_400}></Feather>
-                            <Text style={styles.phoneNumber}>{contact.phoneNumbers[0].number}</Text>
+                            {
+                                contact.phoneNumbers && (
+                                    <View style={styles.phone}>
+                                        <Feather name="phone" size={18} color=
+                                        {theme.colors.gray_400}></Feather>
+                                        <Text style={styles.phoneNumber}>{contact.phoneNumbers[0].number}</Text>
+                                    </View>
+                                )
+                            }
+                            <Button title="Fechar" onPress={handleBottomSheetClose}/>
                         </View>
-                    }
-
-                    <View style={styles.phone}>
-                        <Feather name="phone" size={18} color={theme.colors.blue}></Feather>
-                    <Text style={styles.phoneNumber}></Text>
-                    </View>
-                </BottomSheet>
-            }
+                    </BottomSheet>
+                }
 
         </View>
     )
